@@ -1,72 +1,79 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
 
-  <title>oleellinen.</title>
-  <meta name="description" content="Sovelluksia ja interaktiivisia kokemuksia.">
+  <title>oleellinen. — Kristoffer Hindström</title>
 
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      --bg: #faf9f6;
+      --fg: #242824;
+      --muted: #747a72;
+      --line: #dedfd9;
     }
+
+    * { box-sizing: border-box; }
 
     body {
-      margin: 0;
-      background: #f9f8f5;
-      color: #242824;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    main {
-      width: min(100% - 48px, 520px);
+      max-width: 640px;
       margin: 0 auto;
-      padding: 72px 0 40px;
+      padding: 64px 24px;
+      background: var(--bg);
+      color: var(--fg);
+      font: 15px/1.75 system-ui, sans-serif;
     }
 
     h1 {
+      font-size: 48px;
+      letter-spacing: -2.5px;
       margin: 0;
-      font-size: 38px;
-      line-height: 1.1;
-      letter-spacing: -0.05em;
-    }
-
-    .subtitle {
-      margin: 10px 0 0;
-      color: #687068;
-      font-size: 13px;
-    }
-
-    hr {
-      border: 0;
-      border-top: 1px solid #deded9;
-      margin: 38px 0;
     }
 
     h2 {
+      font-size: 21px;
+      letter-spacing: -.5px;
       margin: 0 0 24px;
-      font-size: 18px;
     }
 
     h3 {
-      margin: 0 0 4px;
-      font-size: 15px;
+      font-size: 16px;
+      margin: 32px 0 6px;
     }
 
-    p {
-      margin: 0 0 16px;
+    p { margin: 0 0 14px; }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    .project {
-      margin-bottom: 26px;
+    nav {
+      display: flex;
+      gap: 24px;
+      margin: 42px 0 56px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .project p {
-      margin: 0;
+    button {
+      background: none;
+      border: 0;
+      padding: 0 0 8px;
+      color: var(--muted);
+      font: inherit;
+      cursor: pointer;
     }
+
+    button.active {
+      color: var(--fg);
+      font-weight: 600;
+      border-bottom: 2px solid var(--fg);
+    }
+
+    section[hidden] { display: none; }
 
     a {
       color: inherit;
@@ -74,75 +81,142 @@
     }
 
     footer {
-      color: #687068;
-      font-size: 12px;
+      margin-top: 80px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--muted);
     }
   </style>
 </head>
 
 <body>
-  <main>
-    <header>
-      <h1>oleellinen.</h1>
-      <p class="subtitle">Sovelluksia ja interaktiivisia kokemuksia.</p>
-    </header>
 
-    <hr>
+<header>
+  <h1>oleellinen.</h1>
+  <p class="muted">Kristoffer Hindström</p>
+</header>
 
-    <section>
-      <h2>Moi, olen Kristoffer.</h2>
-      <p>
-        Kehitän itsenäisesti sovelluksia ja kokeiluja,
-        joissa yhdistyvät selkeys, luovuus ja käytännön tarpeet.
-      </p>
-    </section>
+<nav aria-label="Language">
+  <button class="active" data-lang="fi" onclick="setLang('fi')">FI</button>
+  <button data-lang="en" onclick="setLang('en')">EN</button>
+  <button data-lang="sv" onclick="setLang('sv')">SV</button>
+</nav>
 
-    <hr>
+<section id="fi">
+  <h2>Moi, olen Kristoffer.</h2>
 
-    <section>
-      <h2>Sovellukset</h2>
+  <p>Kehitän itsenäisesti sovelluksia ja interaktiivisia
+  kokeiluja, joissa yhdistyvät selkeys, luovuus ja
+  käytännön tarpeet.</p>
 
-      <div class="project">
-        <h3>hilu.</h3>
-        <p>Selkeä budjettisovellus arjen rahankäytön hahmottamiseen.</p>
-        <a href="https://oleellinen.github.io/hilu/">Lisätietoa</a>
-      </div>
-    </section>
+  <h3>Sovellukset</h3>
 
-    <hr>
+  <p><strong>hilu.</strong><br>
+  Budjettisovellus arjen rahankäytön hahmottamiseen.<br>
+  <a href="https://oleellinen.github.io/hilu/">Lisätietoa hilusta</a></p>
 
-    <section>
-      <h2>Työn alla</h2>
+  <h3>Työn alla</h3>
 
-      <div class="project">
-        <h3>meno.</h3>
-        <p>Yksinkertainen juoksusovellus.</p>
-      </div>
+  <p><strong>meno.</strong><br>
+  Yksinkertainen juoksusovellus.</p>
 
-      <div class="project">
-        <h3>Omenatuuli</h3>
-        <p>Leikillinen lentelypeli, jota kehitetään käsiliikkeillä ohjattavaksi.</p>
-      </div>
+  <p><strong>Omenatuuli</strong><br>
+  Leikillinen lentelypeli, jota kehitetään
+  käsiliikkeillä ohjattavaksi.</p>
 
-      <div class="project">
-        <h3>Hand Control &amp; Hand Paint</h3>
-        <p>Kokeiluja käsiliikkeisiin mukautuvasta ohjauksesta ja digitaalisesta maalaamisesta.</p>
-      </div>
-    </section>
+  <p><strong>Hand Control &amp; Hand Paint</strong><br>
+  Kokeiluja käsiliikkeisiin mukautuvasta ohjauksesta
+  ja digitaalisesta maalaamisesta.</p>
 
-    <hr>
+  <h3>Yhteystiedot</h3>
 
-    <section>
-      <h2>Yhteys</h2>
-      <p>
-        Kristoffer Hindström<br>
-        <a href="mailto:oleellinen@proton.me">oleellinen@proton.me</a>
-      </p>
-    </section>
+  <p>Kristoffer Hindström<br>
+  <a href="mailto:oleellinen@proton.me">oleellinen@proton.me</a></p>
+</section>
 
-    <hr>
+<section id="en" hidden>
+  <h2>Hi, I'm Kristoffer.</h2>
 
-    <footer>© oleellinen.</footer>
-  </main>
+  <p>I independently develop apps and interactive experiments
+  that bring together clarity, creativity and everyday needs.</p>
+
+  <h3>Apps</h3>
+
+  <p><strong>hilu.</strong><br>
+  A budgeting app for making sense of everyday spending.<br>
+  <a href="https://oleellinen.github.io/hilu/">More about hilu.</a></p>
+
+  <h3>In development</h3>
+
+  <p><strong>meno.</strong><br>
+  A simple running app.</p>
+
+  <p><strong>Omenatuuli</strong><br>
+  A playful flying game being developed for hand-motion control.</p>
+
+  <p><strong>Hand Control &amp; Hand Paint</strong><br>
+  Experiments in adaptable hand-motion control and digital painting.</p>
+
+  <h3>Contact</h3>
+
+  <p>Kristoffer Hindström<br>
+  <a href="mailto:oleellinen@proton.me">oleellinen@proton.me</a></p>
+</section>
+
+<section id="sv" hidden>
+  <h2>Hej, jag heter Kristoffer.</h2>
+
+  <p>Jag utvecklar självständigt appar och interaktiva experiment
+  där tydlighet, kreativitet och praktiska behov möts.</p>
+
+  <h3>Appar</h3>
+
+  <p><strong>hilu.</strong><br>
+  En budgetapp för att få överblick över vardagens utgifter.<br>
+  <a href="https://oleellinen.github.io/hilu/">Mer om hilu.</a></p>
+
+  <h3>Under utveckling</h3>
+
+  <p><strong>meno.</strong><br>
+  En enkel löparapp.</p>
+
+  <p><strong>Omenatuuli</strong><br>
+  Ett lekfullt flygspel som utvecklas för att styras med handrörelser.</p>
+
+  <p><strong>Hand Control &amp; Hand Paint</strong><br>
+  Experiment med anpassningsbar handstyrning och digitalt måleri.</p>
+
+  <h3>Kontakt</h3>
+
+  <p>Kristoffer Hindström<br>
+  <a href="mailto:oleellinen@proton.me">oleellinen@proton.me</a></p>
+</section>
+
+<footer>© 2026 oleellinen.</footer>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('section').forEach(section => {
+      section.hidden = section.id !== lang;
+    });
+
+    document.querySelectorAll('nav button').forEach(button => {
+      const active = button.dataset.lang === lang;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+  }
+
+  const preferred = navigator.language.toLowerCase();
+
+  setLang(
+    preferred.startsWith('sv') ? 'sv' :
+    preferred.startsWith('fi') ? 'fi' : 'en'
+  );
+</script>
+
 </body>
 </html>
